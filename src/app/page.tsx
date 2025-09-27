@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Header from "@/Components/Header";
-import Blogitem from "@/Components/Blogitem";
-import Bloglist from "@/Components/Bloglist";
+import Header from "@/components/Header";
+import Blogitem from "@/components/Blogitem";
+import Bloglist from "@/components/Bloglist";
 export default function Home() {
   return (
     <div className="min-h-screen">

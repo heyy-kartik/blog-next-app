@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { assets } from "@/Assets/assets";
+import { ModeToggle } from "./toggle-dark";
 const Header = () => {
   return (
     <header className="w-full px-4 md:px-12 py-4">
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+      <div className="flex justify-between items-center max-w-7xl mx-auto ">
         <Image
           src={assets.logo}
           className="w-[130px]"
@@ -13,10 +14,11 @@ const Header = () => {
           alt="Header Image"
         />
 
-        <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer shadow-lg bg-white hover:bg-gray-50  border border-gray-200 transition-colors duration-200">
+        <button className="flex items-center    gap-2 absolute right-50 px-3 py-2 font-medium cursor-pointer shadow-lg bg-white hover:bg-gray-50  border border-gray-200 transition-colors duration-200">
           Get Started
           <Image src={assets.arrow} alt="arrow icon" className="w-4 h-4" />
         </button>
+        <ModeToggle />
       </div>
       <div className="text-center max-w-3xl mx-auto mt-10 ">
         {" "}
