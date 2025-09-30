@@ -1,12 +1,17 @@
 "use client";
 import { blog_data } from "@/Assets/assets";
 import React from "react";
+import axios from "axios";
 import Blogitem from "./Blogitem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Bloglist = () => {
   const [menu, setMenu] = React.useState("All");
-  const [data, setData] = useState(null);
-  const fetchBlogdata = () => {};
+  const [blogs, setBlogs] = useState([]);
+  const fetchBlogdata = async () => {
+    const res = await axios.get("/api/blog");
+    setBlogs(res.data.blogs);
+    console.log(res.data.blogs);
+  };
   useEffect(() => {
     fetchBlogdata();
   }, []);

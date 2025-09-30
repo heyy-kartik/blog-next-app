@@ -9,6 +9,12 @@ export const ConnectDB = async () => {
       throw new Error("MONGO_URL environment variable is not defined");
     }
 
+    // Check if already connected
+    if (mongoose.connections[0].readyState) {
+      console.log("Already connected to MongoDB");
+      return;
+    }
+
     await mongoose.connect(mongoUrl);
     console.log("MongoDB connected successfully");
   } catch (error) {

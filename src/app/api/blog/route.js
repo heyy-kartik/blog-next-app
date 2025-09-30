@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises"; // Import writeFile
 import { ConnectDB } from "@/lib/config/db"; // Adjust import path as needed
-
+import BlogModel from "@/lib/models/blogModels";
 const LoadDB = async () => {
   await ConnectDB();
 };
 LoadDB();
 
-async function GET(request) {
+export async function GET(request) {
+  const blogs = await BlogModel.find({});
   return NextResponse.json({
-    msg: "API Working",
+    blogs,
   });
 }
 
@@ -36,17 +37,17 @@ export async function POST(request) {
     console.log(imgUrl);
 
     const BlogData = {
-      // Fix: Remove extra curly braces from template literals
       title: formData.get("title"),
       description: formData.get("description"),
       category: formData.get("category"),
       author: formData.get("author"),
-      image: imgUrl, // Use the processed image URL, not the original file
-      authorImg: formData.get("authorImg"),
+      image: imgUrl,
+      authorimg: formData.get("authorimg"), // Fixed: should be authorimg not authorImg
     };
 
-    // TODO: Save BlogData to database
-    console.log("Blog Data:", BlogData);
+    // Save BlogData to database
+    await BlogModel.create(BlogData);
+    console.log("Blog Data saved to database:", BlogData);
 
     return NextResponse.json({
       success: true,
