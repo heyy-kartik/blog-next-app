@@ -5,6 +5,11 @@ import Blogitem from "./Blogitem";
 import { useState } from "react";
 const Bloglist = () => {
   const [menu, setMenu] = React.useState("All");
+  const [data, setData] = useState(null);
+  const fetchBlogdata = () => {};
+  useEffect(() => {
+    fetchBlogdata();
+  }, []);
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-6 my-8">

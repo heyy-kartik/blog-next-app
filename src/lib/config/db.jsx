@@ -1,7 +1,18 @@
-import React from "react";
 import mongoose from "mongoose";
+
 export const ConnectDB = async () => {
-  await mongoose.connect(
-    "mongodb+srv://kartikjagdale0511:VuREOx8EqroiPhLH@cluster0.plvwxot.mongodb.net/blog-app-next"
-  );
+  try {
+    // Properly access environment variable
+    const mongoUrl = process.env.MONGO_URL;
+
+    if (!mongoUrl) {
+      throw new Error("MONGO_URL environment variable is not defined");
+    }
+
+    await mongoose.connect(mongoUrl);
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    throw error;
+  }
 };
