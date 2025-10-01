@@ -92,7 +92,7 @@ const page = () => {
             onChange={onChangeHandler}
             value={data.Description}
             name="Description"
-            className="w-full mt-4 mr-9 px-4 py-3 border border-black"
+            className="w-full mt-4 h-64 w-300px px-4 py-3 border border-black"
             placeholder="Write Content here"
           />
           <p className="text-xl mt-4"> Blog Category </p>
