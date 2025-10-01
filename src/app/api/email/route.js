@@ -67,32 +67,3 @@ export const sendNewBlogNotification = async (blog, subscribers) => {
     throw new Error(`Failed to send email: ${error.message}`);
   }
 };
-
-// Test function to send a single email
-export const sendTestEmail = async (testEmail) => {
-  try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error("RESEND_API_KEY environment variable is not set");
-    }
-
-    const emailData = {
-      from: "Your Blog <noreply@yourdomain.com>",
-      to: [testEmail],
-      subject: "Test Email from Your Blog",
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2> Email System Test</h2>
-          <p>If you're reading this, your email system is working correctly!</p>
-          <p>This is a test email sent from your blog application.</p>
-        </div>
-      `,
-    };
-
-    const result = await resend.emails.send(emailData);
-    console.log("Test email sent successfully:", result);
-    return result;
-  } catch (error) {
-    console.error("Error sending test email:", error);
-    throw error;
-  }
-};
