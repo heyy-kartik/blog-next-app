@@ -43,7 +43,11 @@ This is a **Next.js** project for a blog application, bootstrapped with [`create
 │   ├── backgroundBlog.jpg        # Background image for sign-in page
 │   └── favicon.ico               # Favicon
 ├── .env                          # Environment variables
-└── [README.md](http://_vscodecontentref_/1)             
+└── [README.md](http://_vscodecontentref_/1)  
+
+---
+
+<hr>
  # Project documentation
 
 🛠️ Getting Started
