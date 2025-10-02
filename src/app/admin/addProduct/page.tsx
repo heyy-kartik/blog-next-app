@@ -6,7 +6,7 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import { assets } from "@/Assets/assets";
 import { Description } from "@radix-ui/react-dialog";
-const page = () => {
+const Page = () => {
   const [image, setimage] = useState<File | null>(null);
   const [data, setdata] = useState({
     title: "",
@@ -15,7 +15,11 @@ const page = () => {
     author: "Alex Bennet",
     authorimg: "/author_img.png",
   });
-  const onChangeHandler = (event: any) => {
+  const onChangeHandler = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const name = event.target.name;
     const value = event.target.value;
     setdata((data) => ({
@@ -24,7 +28,7 @@ const page = () => {
     }));
     console.log(data);
   };
-  const onSubmitHandler = async (event: any) => {
+  const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formdata = new FormData();
     formdata.append("title", data.title);
@@ -119,4 +123,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
