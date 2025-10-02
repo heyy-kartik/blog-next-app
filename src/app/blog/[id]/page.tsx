@@ -21,7 +21,7 @@ interface PageProps {
   };
 }
 
-const page = ({ params }: PageProps) => {
+const Page = ({ params }: PageProps) => {
   // Change state type from string to BlogData or null
   const [data, setData] = useState<BlogData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -112,7 +112,8 @@ const page = ({ params }: PageProps) => {
         <p>
           {" "}
           on behalf of human users, fundamentally shifting the paradigm from
-          'tool use' to 'intent fulfillment.' Concurrently, the fusion of
+          &apos;tool use&apos; to &lsquo;intent fulfillment.&apos; Concurrently,
+          the fusion of
         </p>
         <p>
           {" "}
@@ -134,4 +135,4 @@ const page = ({ params }: PageProps) => {
   );
 };
 
-export default page;
+export default Page;
