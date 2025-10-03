@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { assets } from "@/Assets/assets";
 import { ModeToggle } from "./toggle-dark";
-import { toast } from "react-hot-toast";
 
+import { toast } from "react-toastify";
 const Header = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,7 +20,7 @@ const Header = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/subscription", {
+      const response = await fetch("/api/test-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,21 +46,7 @@ const Header = () => {
 
   return (
     <header className="w-full px-4 md:px-12 py-4">
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <Image
-          src={assets.logo}
-          className="w-[130px]"
-          width={180}
-          height={100}
-          alt="Header Image"
-        />
-
-        <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer shadow-lg bg-white hover:bg-gray-50 border border-gray-200 transition-colors duration-200 rounded-lg">
-          Get Started
-          <Image src={assets.arrow} alt="arrow icon" className="w-4 h-4" />
-        </button>
-        <ModeToggle />
-      </div>
+      <div className="flex justify-between items-center mx-auto"></div>
 
       <div className="text-center max-w-3xl mx-auto mt-10">
         <h1 className="text-3xl font-semibold text-center">Latest Blogs</h1>

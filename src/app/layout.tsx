@@ -9,9 +9,11 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Image from "next/image";
+import { assets } from "@/Assets/assets";
 import { ThemeProvider } from "@/components/theme-provider";
-
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/toggle-dark";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -41,27 +43,66 @@ export default function RootLayout({
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
-            {" "}
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange
             >
-              <header className="flex justify-end items-center p-4 gap-4 h-16">
-                <SignedOut>
-                  <SignInButton />
-                  <SignUpButton>
-                    <Button className="text-sm sm:text-base h-5 sm:h-12 ">
-                      Sign Up
-                    </Button>
-                  </SignUpButton>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
+              {/* Navbar Section */}
+              <header className="w-full px-3 md:px-12 py-2 rounded-lg backdrop-blur-lg fixed">
+                <div className="flex justify-between items-center max-w-7xl mx-auto">
+                  {/* Logo */}
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={assets.logo}
+                      className="w-[130px]"
+                      width={180}
+                      height={100}
+                      alt="Header Image"
+                    />
+                  </div>
+
+                  {/* Navbar Buttons */}
+                  <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer  bg-white hover:bg-gray-50 border border-gray-200 transition-colors duration-200 ">
+                      Get Started
+                      <Image
+                        src={assets.arrow}
+                        alt="arrow icon"
+                        className="w-4 h-4"
+                      />
+                    </button>
+
+                    {/* Dark Mode Toggle */}
+                    <div>
+                      <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                      >
+                        <ModeToggle />
+                      </ThemeProvider>
+                    </div>
+
+                    {/* User Profile */}
+                    <SignedOut>
+                      <SignInButton />
+                      <SignUpButton>
+                        <Button className="text-sm sm:text-base h-5 sm:h-12 ">
+                          Sign Up
+                        </Button>
+                      </SignUpButton>
+                    </SignedOut>
+                    <SignedIn>
+                      <UserButton />
+                    </SignedIn>
+                  </div>
+                </div>
               </header>
-              {children}
+
+              {/* Main Content */}
+              <main>{children}</main>
             </ThemeProvider>
           </body>
         </html>
