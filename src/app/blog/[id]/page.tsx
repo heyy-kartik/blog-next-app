@@ -77,7 +77,7 @@ const Page = ({ params }: PageProps) => {
               alt="Header Image"
             />
           </Link>
-          <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer shadow-lg bg-white hover:bg-gray-50  border border-gray-200 transition-colors duration-200">
+          <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer shadow-lg bg-white hover:bg-gray-500  border border-gray-200 rounded-lg transition-colors duration-200">
             Get Started
             <Image src={assets.arrow} alt="arrow icon" className="w-4 h-4" />
           </button>

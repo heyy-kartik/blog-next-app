@@ -45,12 +45,12 @@ export default function RootLayout({
           >
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              defaultTheme="light"
               enableSystem
               disableTransitionOnChange
             >
               {/* Navbar Section */}
-              <header className="w-full px-3 md:px-12 py-2 rounded-lg backdrop-blur-lg fixed">
+              <header className="w-full px-3 md:px-12 py-2 rounded-lg backdrop-blur-sm fixed">
                 <div className="flex justify-between items-center max-w-7xl mx-auto">
                   {/* Logo */}
                   <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ export default function RootLayout({
 
                   {/* Navbar Buttons */}
                   <div className="flex items-center gap-4">
-                    <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer  bg-white hover:bg-gray-50 border border-gray-200 transition-colors duration-200 ">
+                    <button className="flex items-center gap-2 px-6 py-3 font-medium cursor-pointer  bg-white hover:bg-gray-50 border border-gray-200 rounded-lg transition-colors duration-200 ">
                       Get Started
                       <Image
                         src={assets.arrow}
@@ -89,7 +89,7 @@ export default function RootLayout({
                     <SignedOut>
                       <SignInButton />
                       <SignUpButton>
-                        <Button className="text-sm sm:text-base h-5 sm:h-12 ">
+                        <Button className="text-sm sm:text-base h-5  sm:h-12 ">
                           Sign Up
                         </Button>
                       </SignUpButton>

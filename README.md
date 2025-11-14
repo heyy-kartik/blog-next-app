@@ -45,10 +45,12 @@ This is a **Next.js** project for a blog application, bootstrapped with [`create
 ├── .env                          # Environment variables
 └── [README.md](http://_vscodecontentref_/1)  
 
+ 
+
+
 ---
 
-<hr>
- # Project documentation
+##  Project documentation 
 
 🛠️ Getting Started
 1. Install Dependencies
